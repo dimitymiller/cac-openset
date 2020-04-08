@@ -1,4 +1,5 @@
 # Class Anchor Clustering: a Distance-based Loss for Training Open Set Classifiers
+To do - pytorch version, yml, requirements.txt, needs GPU
 
 Class Anchor Clustering (CAC) loss is an entirely distance-based loss the explicitly encourages training data to form tight clusters around class-dependent anchor points in the logit space.
 
@@ -23,7 +24,8 @@ If you use this work, please cite:
  -->
 
 **Contact**
-If you have any questions or comments, please contact [Dimity Miller](mailto:dimity.miller@hdr.qut.edu.au)
+
+If you have any questions or comments, please contact [Dimity Miller](mailto:dimity.miller@hdr.qut.edu.au).
 
 ## Installation
 
@@ -50,16 +52,19 @@ pip install -r requirements.txt
 ```
 
 ## Datasets
-This code uses the following datasets: MNIST, SVHN, CIFAR10, CIFAR100, Tiny ImageNet.
+This code uses MNIST, SVHN, CIFAR10, CIFAR100 and Tiny ImageNet.
 
-These datasets should be available in the 'datasets/data/' folder inside this repository. 
+These datasets should be available in the `datasets/data/` folder inside this repository. 
 
 ### MNIST/SVHN/CIFAR10/CIFAR100
-These datasets will be downloaded automatically if you run the code and they are not available in the 'datasets/data/' folder.
+These datasets will be downloaded automatically if you run the code and they are not available in the `datasets/data/` folder.
 
 ### Tiny ImageNet
-1. Navigate to 'datasets/data/'
-2. Run the following to download and format Tiny ImageNet:
+1. Navigate to `datasets/data/`:
+```bash
+cd datasets/data/
+```
+2. Run the script to download and format Tiny ImageNet:
 ```bash
 ./tinyimagenet.sh
 ```
@@ -67,31 +72,25 @@ These datasets will be downloaded automatically if you run the code and they are
 ## Pre-trained Models
 The models used for evaluation in our paper can be found in the 'networks/weights/' folder of the repository.
 
-The weights are stored in the following format:
-
-	CAC-trained open set classifiers:
+CAC-trained open set classifier weights are stored as:
 		
-		datasetName/datasetName_trialNumber_CACclassifierAnchorLoss.pth
+	datasetName/datasetName_trialNumber_CACclassifierAnchorLoss.pth
 	
-	Cross-entropy-trained (CE) closed set classifiers:
+Cross-entropy-trained (CE) closed set classifier weights are stored as:
 		
-		datasetName/datasetName_trialNumber_closedSetClassifier.pth
+	datasetName/datasetName_trialNumber_closedSetClassifier.pth
 
 where:
-
-	*datasetName* is one of: MNIST, SVHN, CIFAR10, CIFAR+10, CIFAR+50, TinyImageNet
-	
-	*trialNumber* can be trial 0-4. 
+* `datasetName` is one of: MNIST, SVHN, CIFAR10, CIFAR+10, CIFAR+50, TinyImageNet
+* `trialNumber` can be trial 0-4. 
 
 ## Training 
 ### Known/unknown class splits
 The known/unknown class split for each dataset corresponds to 'trial' files. 
 
-These files can be found in 'datasets/datasetName/class_splits/' where *datasetName* is one of: MNIST, SVHN, CIFAR10, CIFAR+10, CIFAR+50, TinyImageNet.
+These files can be found in `datasets/datasetName/class_splits/trialNumber.json` where `datasetName` is MNIST, SVHN, CIFAR10, CIFAR+10, CIFAR+50 or TinyImageNet.
 
-The trial file is saved as a json file in the format 'trialNumber.json'.
-
-Each trial file contains a dictionary that holds the known/unknown class split information. For example, 'CIFAR10/0.json' contains:
+Each trial file contains a dictionary that holds the known/unknown class split information. For example, `CIFAR10/class_splits/0.json` contains:
 
 ```{python}
 {"Known": [6, 8, 2, 4, 9, 3], "Unknown": [1, 5, 7, 0]}
@@ -99,7 +98,7 @@ Each trial file contains a dictionary that holds the known/unknown class split i
 
 This indicates that classes 2, 3, 4, 6, 8 and 9 in CIFAR10 are 'known' and classes 0, 1, 5 and 7 are 'unknown' during training.
 
-You can create your own trialNumber.json file with a custom known/unknown class split. The *trialNumber* must be an integer number and you must reference this *trialNumber* when calling the training script (as detailed below).
+You can create your own `trialNumber.json` file with a custom known/unknown class split. The `trialNumber` must be an integer number and you must reference this when calling the training script (as detailed below).
 
 
 ### Training an open set classifier with CAC Loss
@@ -108,21 +107,16 @@ python train_cacOpenset.py --dataset dsName --trial tNum
 ```
 where:
 
-	**dsName** is the dataset to train on. Must be one of:  ['MNIST', 'SVHN', 'CIFAR10', 'CIFAR+10', 'CIFAR+50', 'TinyImageNet']
-	
-	**tNum** is the trial number corresponding to the known/unknown class split. Trial 0-4 were used in this paper.
+* `dsName` is the dataset to train on. Must be one of:  ['MNIST', 'SVHN', 'CIFAR10', 'CIFAR+10', 'CIFAR+50', 'TinyImageNet']
+* `tNum` is the trial number corresponding to the known/unknown class split. Trial 0-4 were used in this paper.
 
 Optional arguments:
 
-	**-r** to resume training from a checkpoint with a lower learning rate.
-	
-	**--alpha a** where a is the magnitude of the anchor point
-	
-	**--lbda l** where l is the weighting of the Anchor component of CAC loss
-	
-	**-t** to plot the training curves on tensorboardX
-	
-	**--name n** uses n in the name for tensorboard and saving the weights. By default it is "myTest". 
+* `-r` to resume training from a checkpoint with a lower learning rate.
+* `--alpha a` where a is the magnitude of the anchor point
+* `--lbda l` where l is the weighting of the Anchor component of CAC loss
+* `-t` to plot the training curves on tensorboardX
+* `--name n` uses n in the name for tensorboard and saving the weights. By default it is "myTest". 
 
 
 ### Training a standard classifier with Cross-Entropy (CE) Loss
@@ -131,18 +125,14 @@ python train_closedSet.py --dataset dsName --trial tNum
 ```
 where:
 
-	**dsName** is the dataset to train on. Must be one of:  ['MNIST', 'SVHN', 'CIFAR10', 'CIFAR+10', 'CIFAR+50', 'TinyImageNet']
-	
-	**tNum** is the trial number corresponding to the known/unknown class split. Trial 0-4 were used in this paper.
+* `dsName` is the dataset to train on. Must be one of:  ['MNIST', 'SVHN', 'CIFAR10', 'CIFAR+10', 'CIFAR+50', 'TinyImageNet']
+* `tNum` is the trial number corresponding to the known/unknown class split. Trial 0-4 were used in this paper.
 
 Optional arguments:
-	
-	**-r** to resume training from a checkpoint with a lower learning rate.
-	
-	**-t** to plot the training curves on tensorboardX
-	
-	**--name n** uses n in the name for tensorboard and saving the weights. By default it is "myTest". 
 
+* `-r` to resume training from a checkpoint with a lower learning rate.
+* `-t` to plot the training curves on tensorboardX
+* `--name n` uses n in the name for tensorboard and saving the weights. By default it is "myTest". 
 
 ## Evaluation
 The evaluation scripts calculate the classification accuracy on the known classes and AUROC open set performance on separating known and unknown classes. For the paper, we calculate this performance averaged over trials 0-4.
@@ -158,14 +148,10 @@ python eval_closedSet.py -dataset dsName
 ```
 
 where:
-
-	**dsName** is the dataset to evaluate. Must be one of:  ['MNIST', 'SVHN', 'CIFAR10', 'CIFAR+10', 'CIFAR+50', 'TinyImageNet']
+* `dsName` is the dataset to evaluate. Must be one of:  ['MNIST', 'SVHN', 'CIFAR10', 'CIFAR+10', 'CIFAR+50', 'TinyImageNet']
 
 Optional arguments:
-
-	**--num_trials nt** where nt is the number of trials to average performance over. By default it is 5. To evaluate one network you have trained, use nt as 1. 
-	
-	**--start_trial st** where st is the starting trial number for evaluation. By default it is 0. You can change this to a custom trial number you have created and trained on. 
-	
-	**--name n** uses n is the name used when saving the weights. By default it is "". If you have trained your own networks, use "myTest".
+* `--num_trials nt` where nt is the number of trials to average performance over. By default it is 5. To evaluate one network you have trained, use nt as 1. 
+* `--start_trial st` where st is the starting trial number for evaluation. By default it is 0. You can change this to a custom trial number you have created and trained on. 
+* `--name n` uses n is the name used when saving the weights. By default it is "". If you have trained your own networks, use "myTest".
 
