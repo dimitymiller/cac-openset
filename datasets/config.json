@@ -1,0 +1,267 @@
+{
+	"MNIST":
+		{
+			"name": "MNIST",
+
+			"batch_size": 128,
+
+			"closedset_training": {
+				"learning_rate": [0.01],
+				"weight_decay": 5e-6,
+
+				"max_epoch": [35]
+			},
+
+			"openset_training": {
+				"learning_rate": [0.01],
+				"weight_decay": 5e-6,
+
+				"max_epoch": [35]
+			},
+
+
+			"dataloader_workers": 2,
+
+			"im_size": 32,
+			"im_channels": 1,
+
+			"data_mean": [[0.1321],
+							[0.1343],
+							[0.1382],
+							[0.1248],
+							[0.1421]],
+			"data_std": [[0.3101],
+							[0.3110],
+							[0.3154],
+							[0.3023],
+							[0.3193]],
+
+			"data_transforms": {"flip": 0, "rotate": 0, "scale_min": 0.7},
+
+			"dropout": 0.2,
+
+			"num_known_classes": 6,
+			"num_classes": 10
+	},
+
+	"SVHN":
+		{
+			"name": "SVHN",
+
+			"batch_size": 128,
+
+			"closedset_training": {
+				"learning_rate": [0.01],
+				"weight_decay": 5e-6,
+
+				"max_epoch": [50]
+			},
+
+			"openset_training": {
+				"learning_rate": [0.01],
+				"weight_decay": 5e-6,
+
+				"max_epoch": [50]
+			},
+
+			"dataloader_workers": 2,
+
+			"im_size": 32,
+			"im_channels": 3,
+
+			"data_mean": [[0.4479, 0.4485, 0.4492],
+							[0.4491, 0.4498, 0.4509],
+							[0.4499, 0.4506, 0.4513],
+							[0.4495, 0.4500, 0.4507],
+							[0.4503, 0.4503, 0.4508]],
+			"data_std": [[0.2008, 0.1997, 0.1998],
+							[0.1992, 0.1981, 0.1984],
+							[0.1986, 0.1975, 0.1977],
+							[0.2014, 0.2001, 0.2002],
+							[0.2000, 0.1989, 0.1994]],
+
+			"data_transforms": {"flip": 0, "rotate": 0, "scale_min": 0.7},
+
+			"dropout": 0.2,
+
+			"num_known_classes": 6,
+			"num_classes": 10
+	},
+
+	"CIFAR10":
+		{
+			"name": "CIFAR10",
+
+			"batch_size": 128,
+
+			"closedset_training": {
+				"learning_rate": [0.01, 0.001],
+				"weight_decay": 5e-6,
+
+				"max_epoch":  [150, 50]
+			},
+
+			"openset_training": {
+				"learning_rate": [0.01, 0.001],
+				"weight_decay": 5e-6,
+
+				"max_epoch":  [150, 50]
+			},
+
+			"dataloader_workers": 2,
+
+			"im_size": 32,
+			"im_channels": 3,
+
+			"data_mean": [[0.4858, 0.4771, 0.4326],
+							[0.4850, 0.4598, 0.4032],
+							[0.4882, 0.4847, 0.4552],
+							[0.4872, 0.4836, 0.4498],
+							[0.4917, 0.4810, 0.4498]],
+			"data_std":  [[0.2422, 0.2374, 0.2547],
+							[0.2452, 0.2397, 0.2474],
+							[0.2454, 0.2408, 0.2622],
+							[0.2465, 0.2432, 0.2595],
+							[0.2512, 0.2487, 0.2685]],
+
+			"data_transforms": {"flip": 0.5, "rotate": 10, "scale_min": 0.8},
+
+			"dropout": 0.2,
+
+			"num_known_classes": 6,
+			"num_classes": 10
+	},
+
+
+	"CIFAR+10":
+		{
+			"name": "CIFAR+10",
+
+			"batch_size": 128,
+
+			"closedset_training": {
+				"learning_rate": [0.01, 0.001],
+				"weight_decay": 5e-4,
+
+				"max_epoch":  [150, 50]
+			},
+
+			"openset_training": {
+				"learning_rate": [0.01, 0.001],
+				"weight_decay": 5e-4,
+
+				"max_epoch": [150, 50]
+			},
+
+			"dataloader_workers": 2,
+
+			"im_size": 32,
+			"im_channels": 3,
+
+			"data_mean": [[0.4965, 0.5063, 0.5173],
+							[0.4965, 0.5063, 0.5173],
+							[0.4965, 0.5063, 0.5173],
+							[0.4965, 0.5063, 0.5173],
+							[0.4965, 0.5063, 0.5173]], 
+			"data_std": [[0.2599, 0.2575, 0.2745],
+							[0.2599, 0.2575, 0.2745],
+							[0.2599, 0.2575, 0.2745],
+							[0.2599, 0.2575, 0.2745],
+							[0.2599, 0.2575, 0.2745]],
+
+			"data_transforms": {"flip": 0.5, "rotate": 0, "scale_min": 0.8},
+
+			"dropout": 0.2,
+
+			"num_known_classes": 4,
+			"num_classes": 10
+	},
+	"CIFAR+50":
+		{
+			"name": "CIFAR+50",
+
+			"batch_size": 32,
+
+			"closedset_training": {
+				"learning_rate": [0.01, 0.001],
+				"weight_decay": 5e-4,
+
+				"max_epoch": [150, 50]
+			},
+
+			"openset_training": {
+				"learning_rate": [0.01, 0.001],
+				"weight_decay": 5e-4,
+
+				"max_epoch": [150, 50]
+			},
+
+			"dataloader_workers": 2,
+
+			"im_size": 32,
+			"im_channels": 3,
+
+			"data_mean": [[0.4965, 0.5063, 0.5173],
+							[0.4965, 0.5063, 0.5173],
+							[0.4965, 0.5063, 0.5173],
+							[0.4965, 0.5063, 0.5173],
+							[0.4965, 0.5063, 0.5173]], 
+			"data_std": [[0.2599, 0.2575, 0.2745],
+							[0.2599, 0.2575, 0.2745],
+							[0.2599, 0.2575, 0.2745],
+							[0.2599, 0.2575, 0.2745],
+							[0.2599, 0.2575, 0.2745]],
+
+			"data_transforms": {"flip": 0.5, "rotate": 0, "scale_min": 0.8},
+
+			"dropout": 0.2,
+
+			"num_known_classes": 4,
+			"num_classes": 10
+	},
+
+	"TinyImageNet":
+		{
+			"name": "TinyImageNet",
+
+			"batch_size": 128,
+
+			"closedset_training": {
+				"learning_rate": [0.01, 0.001],
+				"weight_decay": 10e-4,
+
+				"max_epoch": [500, 300]
+			},
+
+			"openset_training": {
+				"learning_rate": [0.01, 0.001],
+				"weight_decay": 10e-4,
+
+				"max_epoch": [500, 300]
+			},
+
+			"dataloader_workers": 2,
+
+			"im_size": 64,
+			"im_channels": 3,
+
+			"data_mean": [[0.4795, 0.4367, 0.3741], 
+							[0.4927, 0.4622, 0.4247], 
+							[0.4585, 0.4563, 0.4133],
+							[0.4664, 0.4517, 0.4131], 
+							[0.4766, 0.4387, 0.3951]],
+			"data_std": [[0.2787, 0.2707, 0.2759], 
+							[0.2742, 0.2692, 0.2828],  
+							[0.2696, 0.2590, 0.2752],
+							[0.2779, 0.2712, 0.2865], 
+							[0.2822, 0.2678, 0.2841]],
+
+			"data_transforms": {"flip": 0.5, "rotate": 20, "scale_min": 0.7},
+
+			"dropout": 0.3,
+
+			"num_known_classes": 20,
+			"num_classes": 200
+	}
+
+}
