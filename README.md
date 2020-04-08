@@ -2,7 +2,7 @@
 
 Class Anchor Clustering (CAC) loss is an entirely distance-based loss the explicitly encourages training data to form tight clusters around class-dependent anchor points in the logit space.
 
-<!-- ![Image description](link-to-image) -->
+![Image description](images/githubdisplay.png)
 
 This repository contains the training and evaluation code from the paper:
 
