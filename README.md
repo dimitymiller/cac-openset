@@ -68,13 +68,19 @@ These datasets will be downloaded automatically if you run the code and they are
 The models used for evaluation in our paper can be found in the 'networks/weights/' folder of the repository.
 
 The weights are stored in the following format:
+
 	CAC-trained open set classifiers:
+		
 		datasetName/datasetName_trialNumber_CACclassifierAnchorLoss.pth
+	
 	Cross-entropy-trained (CE) closed set classifiers:
+		
 		datasetName/datasetName_trialNumber_closedSetClassifier.pth
 
 where:
+
 	*datasetName* is one of: MNIST, SVHN, CIFAR10, CIFAR+10, CIFAR+50, TinyImageNet
+	
 	*trialNumber* can be trial 0-4. 
 
 ## Training 
@@ -101,13 +107,21 @@ You can create your own trialNumber.json file with a custom known/unknown class 
 python train_cacOpenset.py --dataset dsName --trial tNum 
 ```
 where:
+
 	**dsName** is the dataset to train on. Must be one of:  ['MNIST', 'SVHN', 'CIFAR10', 'CIFAR+10', 'CIFAR+50', 'TinyImageNet']
+	
 	**tNum** is the trial number corresponding to the known/unknown class split. Trial 0-4 were used in this paper.
+
 Optional arguments:
+
 	**-r** to resume training from a checkpoint with a lower learning rate.
+	
 	**--alpha a** where a is the magnitude of the anchor point
+	
 	**--lbda l** where l is the weighting of the Anchor component of CAC loss
+	
 	**-t** to plot the training curves on tensorboardX
+	
 	**--name n** uses n in the name for tensorboard and saving the weights. By default it is "myTest". 
 
 
@@ -116,11 +130,17 @@ Optional arguments:
 python train_closedSet.py --dataset dsName --trial tNum 
 ```
 where:
+
 	**dsName** is the dataset to train on. Must be one of:  ['MNIST', 'SVHN', 'CIFAR10', 'CIFAR+10', 'CIFAR+50', 'TinyImageNet']
+	
 	**tNum** is the trial number corresponding to the known/unknown class split. Trial 0-4 were used in this paper.
+
 Optional arguments:
+	
 	**-r** to resume training from a checkpoint with a lower learning rate.
+	
 	**-t** to plot the training curves on tensorboardX
+	
 	**--name n** uses n in the name for tensorboard and saving the weights. By default it is "myTest". 
 
 
@@ -138,9 +158,14 @@ python eval_closedSet.py -dataset dsName
 ```
 
 where:
+
 	**dsName** is the dataset to evaluate. Must be one of:  ['MNIST', 'SVHN', 'CIFAR10', 'CIFAR+10', 'CIFAR+50', 'TinyImageNet']
+
 Optional arguments:
+
 	**--num_trials nt** where nt is the number of trials to average performance over. By default it is 5. To evaluate one network you have trained, use nt as 1. 
+	
 	**--start_trial st** where st is the starting trial number for evaluation. By default it is 0. You can change this to a custom trial number you have created and trained on. 
+	
 	**--name n** uses n is the name used when saving the weights. By default it is "". If you have trained your own networks, use "myTest".
 
