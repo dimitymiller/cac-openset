@@ -1,9 +1,10 @@
 # Class Anchor Clustering: a Distance-based Loss for Training Open Set Classifiers
-To do - pytorch version, yml, requirements.txt, needs GPU
 
 Class Anchor Clustering (CAC) loss is an entirely distance-based loss the explicitly encourages training data to form tight clusters around class-dependent anchor points in the logit space.
 
-This repository contains the training and evaluation code for CAC loss from the paper:
+<!-- ![Image description](link-to-image) -->
+
+This repository contains the training and evaluation code from the paper:
 
 **Class Anchor Clustering: a Distance-based Loss for Training Open Set Classifiers**
 
@@ -13,15 +14,17 @@ This repository contains the training and evaluation code for CAC loss from the 
 
 If you use this work, please cite:
 
-<!-- ```text
-@inproceedings{morrison2018closing,
-	title={{Closing the Loop for Robotic Grasping: A Real-time, Generative Grasp Synthesis Approach}},
-	author={Morrison, Douglas and Corke, Peter and Leitner, J\"urgen},
-	booktitle={Proc.\ of Robotics: Science and Systems (RSS)},
-	year={2018}
+```text
+@misc{miller2020class,
+    title={Class Anchor Clustering: a Distance-based Loss for Training Open Set Classifiers},
+    author={Dimity Miller and Niko Sünderhauf and Michael Milford and Feras Dayoub},
+    year={2020},
+    eprint={2004.02434},
+    archivePrefix={arXiv},
+    primaryClass={cs.CV}
 }
 ```
- -->
+
 
 **Contact**
 
@@ -29,7 +32,7 @@ If you have any questions or comments, please contact [Dimity Miller](mailto:dim
 
 ## Installation
 
-This code was developed with Python 3.6 on Ubuntu 16.04.
+This code was developed with Python 3.6 on Ubuntu 16.04. It currently requires a GPU. 
  
 ### Installing via conda environment (recommended)
 We have included the cac.yml file for the conda environment we used during this project. To create your own conda environment you can run:
@@ -60,17 +63,14 @@ These datasets should be available in the `datasets/data/` folder inside this re
 These datasets will be downloaded automatically if you run the code and they are not available in the `datasets/data/` folder.
 
 ### Tiny ImageNet
-1. Navigate to `datasets/data/`:
+Run the following to download and setup TinyImageNet.
 ```bash
 cd datasets/data/
-```
-2. Run the script to download and format Tiny ImageNet:
-```bash
 ./tinyimagenet.sh
 ```
 
 ## Pre-trained Models
-The models used for evaluation in our paper can be found in the 'networks/weights/' folder of the repository.
+The trained models used for our paper can be found in the 'networks/weights/' folder.
 
 CAC-trained open set classifier weights are stored as:
 		
@@ -83,6 +83,8 @@ Cross-entropy-trained (CE) closed set classifier weights are stored as:
 where:
 * `datasetName` is one of: MNIST, SVHN, CIFAR10, CIFAR+10, CIFAR+50, TinyImageNet
 * `trialNumber` can be trial 0-4. 
+
+If you wish to evaluate these networks, leave the `--name` argument blank for the evaluation scripts.
 
 ## Training 
 ### Known/unknown class splits
