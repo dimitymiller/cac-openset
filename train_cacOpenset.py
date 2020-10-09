@@ -70,7 +70,7 @@ if args.resume:
 	print('==> Resuming from checkpoint..')
 	assert os.path.isdir('networks/weights'), 'Error: no checkpoint directory found!'
 	
-	checkpoint = torch.load('networks/weights/{}/{}_{}_{}_{}CACclassifierAnchorLoss.pth'.format(args.dataset, args.dataset, args.trial, args.name))
+	checkpoint = torch.load('networks/weights/{}/{}_{}_{}CACclassifierAnchorLoss.pth'.format(args.dataset, args.dataset, args.trial, args.name))
 
 	start_epoch = checkpoint['epoch']
 

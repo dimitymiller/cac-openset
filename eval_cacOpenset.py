@@ -43,7 +43,7 @@ for trial_num in range(args.start_trial, args.start_trial+args.num_trials):
 	knownloader, unknownloader, mapping = dataHelper.get_eval_loaders(args.dataset, trial_num, cfg)
 
 	print('==> Building open set network for trial {}..'.format(trial_num))
-	net = openSetClassifier.openSetClassifier(cfg['num_known_classes'], cfg['im_channels'], cfg['im_size'])
+	net = openSetClassifier.openSetClassifier(cfg['num_known_classes'], cfg['im_channels'], cfg['im_size'], dropout = cfg['dropout'])
 	checkpoint = torch.load('networks/weights/{}/{}_{}_{}CACclassifierAnchorLoss.pth'.format(args.dataset, args.dataset, trial_num, args.name))
 
 	net = net.to(device)

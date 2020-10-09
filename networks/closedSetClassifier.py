@@ -14,7 +14,7 @@ class closedSetClassifier(nn.Module):
         super(closedSetClassifier, self).__init__()
 
         self.num_classes = num_classes
-        self.encoder = BaseEncoder(num_channels, init_weights)
+        self.encoder = BaseEncoder(num_channels, init_weights, dropout)
         
         if im_size == 32:
             self.classify = nn.Linear(128*4*4, num_classes)

@@ -43,7 +43,7 @@ for trial_num in range(args.start_trial, args.start_trial+args.num_trials):
 
 	###################Closed Set Network Evaluation##################################################################
 	print('==> Building open set network for trial {}..'.format(trial_num))
-	net = closedSetClassifier.closedSetClassifier(cfg['num_known_classes'], cfg['im_channels'], cfg['im_size'])
+	net = closedSetClassifier.closedSetClassifier(cfg['num_known_classes'], cfg['im_channels'], cfg['im_size'], dropout = cfg['dropout'])
 	checkpoint = torch.load('networks/weights/{}/{}_{}_{}closedSetClassifier.pth'.format(args.dataset, args.dataset, trial_num, args.name))
 
 	net = net.to(device)

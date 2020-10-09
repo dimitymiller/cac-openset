@@ -6,17 +6,24 @@
 			"batch_size": 128,
 
 			"closedset_training": {
-				"learning_rate": [0.01],
+				"learning_rate": [0.01, 0.001],
 				"weight_decay": 5e-6,
 
-				"max_epoch": [35]
+				"max_epoch": [35, 35]
+			},
+
+			"center_training": {
+				"learning_rate": [0.01, 0.001],
+				"weight_decay": 5e-6,
+
+				"max_epoch": [70, 70]
 			},
 
 			"openset_training": {
-				"learning_rate": [0.01],
+				"learning_rate": [0.01, 0.001],
 				"weight_decay": 5e-6,
 
-				"max_epoch": [35]
+				"max_epoch": [35, 35]
 			},
 
 
@@ -51,17 +58,24 @@
 			"batch_size": 128,
 
 			"closedset_training": {
-				"learning_rate": [0.01],
+				"learning_rate": [0.01, 0.001],
 				"weight_decay": 5e-6,
 
-				"max_epoch": [50]
+				"max_epoch": [50, 25]
+			},
+
+			"center_training": {
+				"learning_rate": [0.01, 0.001],
+				"weight_decay": 5e-6,
+
+				"max_epoch": [75, 75]
 			},
 
 			"openset_training": {
-				"learning_rate": [0.01],
+				"learning_rate": [0.01, 0.001],
 				"weight_decay": 5e-6,
 
-				"max_epoch": [50]
+				"max_epoch": [50, 25]
 			},
 
 			"dataloader_workers": 2,
@@ -101,6 +115,13 @@
 				"max_epoch":  [150, 50]
 			},
 
+			"center_training": {
+				"learning_rate": [0.01, 0.001, 0.0001],
+				"weight_decay": 5e-6,
+
+				"max_epoch": [250, 150]
+			},
+
 			"openset_training": {
 				"learning_rate": [0.01, 0.001],
 				"weight_decay": 5e-6,
@@ -133,6 +154,7 @@
 	},
 
 
+
 	"CIFAR+10":
 		{
 			"name": "CIFAR+10",
@@ -144,6 +166,13 @@
 				"weight_decay": 5e-4,
 
 				"max_epoch":  [150, 50]
+			},
+
+			"center_training": {
+				"learning_rate": [0.01, 0.001, 0.0001],
+				"weight_decay": 5e-6,
+
+				"max_epoch": [150, 75, 75]
 			},
 
 			"openset_training": {
@@ -189,6 +218,13 @@
 				"max_epoch": [150, 50]
 			},
 
+			"center_training": {
+				"learning_rate": [0.01, 0.001, 0.0001],
+				"weight_decay": 5e-6,
+
+				"max_epoch": [150, 75, 75]
+			},
+
 			"openset_training": {
 				"learning_rate": [0.01, 0.001],
 				"weight_decay": 5e-4,
@@ -231,6 +267,13 @@
 				"weight_decay": 10e-4,
 
 				"max_epoch": [500, 300]
+			},
+
+			"center_training": {
+				"learning_rate": [0.01, 0.001, 0.0001],
+				"weight_decay": 5e-6,
+
+				"max_epoch": [700, 500]
 			},
 
 			"openset_training": {
