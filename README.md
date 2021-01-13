@@ -14,6 +14,9 @@ Published at the 2021 IEEE/CVF Winter Conference on Applications of Computer Vis
 
 [WACV Paper](https://openaccess.thecvf.com/content/WACV2021/papers/Miller_Class_Anchor_Clustering_A_Loss_for_Distance-Based_Open_Set_Recognition_WACV_2021_paper.pdf)
 
+[Supplementary Material](https://openaccess.thecvf.com/content/WACV2021/supplemental/Miller_Class_Anchor_Clustering_WACV_2021_supplemental.pdf)
+
+
 If you use this work, please cite:
 
 ```text
