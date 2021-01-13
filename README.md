@@ -10,18 +10,18 @@ This repository contains the training and evaluation code from the paper:
 
 *Dimity Miller, Niko Suenderhauf, Michael Milford, Feras Dayoub*
 
-[arXiv Paper](https://arxiv.org/abs/2004.02434)
+Published at the 2021 IEEE/CVF Winter Conference on Applications of Computer Vision (WACV).
+
+[WACV Paper](https://openaccess.thecvf.com/content/WACV2021/papers/Miller_Class_Anchor_Clustering_A_Loss_for_Distance-Based_Open_Set_Recognition_WACV_2021_paper.pdf)
 
 If you use this work, please cite:
 
 ```text
-@misc{miller2020class,
-    title={Class Anchor Clustering: a Distance-based Loss for Training Open Set Classifiers},
-    author={Dimity Miller and Niko Sünderhauf and Michael Milford and Feras Dayoub},
-    year={2020},
-    eprint={2004.02434},
-    archivePrefix={arXiv},
-    primaryClass={cs.CV}
+@inproceedings{millerclass,
+  title={Class Anchor Clustering: A Loss for Distance-Based Open Set Recognition},
+  author={Miller, Dimity and Suenderhauf, Niko and Milford, Michael and Dayoub, Feras},
+  booktitle={Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision},
+  pages={3570--3578}
 }
 ```
 
