@@ -4,7 +4,7 @@
 wget http://cs231n.stanford.edu/tiny-imagenet-200.zip
 unzip tiny-imagenet-200.zip
 
-current="$(pwd)/tiny-imagenet-200"
+current="$(pwd)/data/tiny-imagenet-200"
 
 # training data
 cd $current/train
