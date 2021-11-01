@@ -68,7 +68,8 @@ These datasets will be downloaded automatically if you run the code and they are
 ### Tiny ImageNet
 Run the following to download and setup TinyImageNet.
 ```bash
-cd datasets/data/
+cd datasets/
+chmod +x tinyimagenet.sh
 ./tinyimagenet.sh
 ```
 
