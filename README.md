@@ -145,12 +145,12 @@ The evaluation scripts calculate the classification accuracy on the known classe
 
 For CAC-trained classifiers:
 ```bash
-python eval_cacOpenset.py -dataset dsName 
+python eval_cacOpenset.py --dataset dsName 
 ```
 
 For CE-trained classifiers:
 ```bash
-python eval_closedSet.py -dataset dsName 
+python eval_closedSet.py --dataset dsName 
 ```
 
 where:
