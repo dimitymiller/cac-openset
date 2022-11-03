@@ -74,6 +74,7 @@ chmod +x tinyimagenet.sh
 ```
 
 ## Pre-trained Models
+NOTE: These pre-trained models are now out-dated as they are for the old trial splits. You will need to train models for the existing trial splits.
 The trained models used for our paper can be found in the 'networks/weights/' folder.
 
 CAC-trained open set classifier weights are stored as:
